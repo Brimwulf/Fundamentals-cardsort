@@ -13,4 +13,4 @@ struct aCard {                          // defines a card
 
 std::string cardToStr(aCard c);			// declare function to represent a card as a two character string
 
-aCard getCard(std::string stdno);        // declares function to get a card from stdno string
+aCard getCard(std::string studentNumber);        // declares function to get a card from stdno string

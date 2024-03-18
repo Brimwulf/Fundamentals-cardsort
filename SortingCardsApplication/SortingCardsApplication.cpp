@@ -8,15 +8,16 @@
 #include "cardlib.h"
 using namespace std;
 
-const int maxCard = 3;
+const int maxCard = 20;
 
 aCard thePack[maxCard];
 
 
-int main()
-{
+int main() {
     cout << "Card Sorting!\n";
 
-    for (int ct = 0; ct < maxCard; ct++)
+    for (int ct = 0; ct < maxCard; ct++) {
         thePack[ct] = getCard("32024813");   // change to your student number
+        cout << thePack[ct].cardVal << " of " << thePack[ct].cardSuit << endl;
+    }
 }

@@ -18,6 +18,12 @@ int main() {
 
     for (int ct = 0; ct < maxCard; ct++) {
         thePack[ct] = getCard("32024813");   // change to your student number
-        cout << thePack[ct].cardVal << " of " << thePack[ct].cardSuit << endl;
+        //cout << thePack[ct].cardVal << " of " << thePack[ct].cardSuit << endl;
+        if (thePack[ct].cardVal == 1) cout << "Ace";
+        else if (thePack[ct].cardVal == 11) cout << "Jack";
+        else if (thePack[ct].cardVal == 12) cout << "Queen";
+        else if (thePack[ct].cardVal == 11) cout << "King";
+        else cout << thePack[ct].cardVal;
+        cout << " of " << thePack[ct].cardSuit << endl;
     }
 }

@@ -13,23 +13,22 @@ const int maxCard = 20;
 aCard thePack[maxCard];
 // thePack is an array of aCards with an array size: maxCard.
 
-void bubbleSort(aCard pack[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            //if (pack[j] > pack[j + 1]) {
-
-            //}
-        }
-    }
-}
-
 int main() {
     cout << "Card Sorting!\n" << endl;
 
+    cout << "Pack before:" << endl;
     for (int ct = 0; ct < maxCard; ct++) {
         thePack[ct] = getCard("32024813");   // change to your student number
         cout << thePack[ct].cardVal << " of " << cardToStr(thePack[ct]) << endl;
     }
+
+    int comparisons, moves;
+    bubbleSort(thePack, maxCard, comparisons, moves);
+    cout << "\nSorted by bubble sort:\n" << endl;
+    for (int ct = 0; ct < maxCard; ct++) {
+        cout << thePack[ct].cardVal << " of " << cardToStr(thePack[ct]) << endl;
+    }
+    cout << "Comparisons made: " << comparisons << " moves taken: " << moves << endl;
 }
 
 // Remember that aCard is already represented as a number + another number. The above logic only represents it so that it can be printed out

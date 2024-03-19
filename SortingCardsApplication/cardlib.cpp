@@ -2,6 +2,7 @@
 // 6/2/24
 // Adapted by Hayden Scott, 32024813
 
+#include <iostream>
 #include "cardlib.h"
 using namespace std;
 
@@ -26,4 +27,25 @@ aCard getCard(string studentNumber) {
     ans.cardVal = 1 + rcard % 13;                          // give cardVal 1..13 
     ans.cardSuit = static_cast<Suit>(rcard / 13);         // and for suit
     return ans;
+}
+
+void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
+    bool swapMade;
+    moves = 0;
+    comparisons = 0;
+    for (int i = 0; i < size - 1; i++) {
+        swapMade = false;
+        comparisons++;
+        for (int j = 0; j < size - i - 1; j++) {
+            if (pack[j].cardVal > pack[j + 1].cardVal) {
+                aCard temp = pack[j];
+                pack[j] = pack[j + 1];
+                pack[j + 1] = temp;
+                swapMade = true;
+                moves++;
+            }
+        }
+        // if swapMade remains false after the iteration of the loop this means no swap took place we want the loop to break
+        if (swapMade == false) break;
+    }
 }

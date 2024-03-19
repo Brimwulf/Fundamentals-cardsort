@@ -6,15 +6,30 @@
 #include "cardlib.h"
 using namespace std;
 
-string cardToStr(aCard c) {
-    string output;
+string suitToStr(aCard c) {
+    string suit_output;
+    
     switch (c.cardSuit) {
-    case clubs: output = "clubs"; break;
-    case diamonds: output = "diamonds"; break;
-    case hearts: output = "hearts"; break;
-    case spades: output = "spades"; break;
+    case clubs: suit_output = "clubs"; break;
+    case diamonds: suit_output = "diamonds"; break;
+    case hearts: suit_output = "hearts"; break;
+    case spades: suit_output = "spades"; break;
     }
-    return output;
+    
+    return suit_output;
+}
+
+string valueToStr(aCard c) {
+    string value_output;
+    switch (c.cardVal) {
+    case 1: value_output = "Ace"; break;
+    case 11: value_output = "Jack"; break;
+    case 12: value_output = "Queen"; break;
+    case 13: value_output = "King"; break;
+    default: value_output = std::to_string(c.cardVal);
+    }
+
+    return value_output;
 }
 
 aCard getCard(string studentNumber) { 
@@ -35,8 +50,8 @@ void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
     comparisons = 0;
     for (int i = 0; i < size - 1; i++) {
         swapMade = false;
-        comparisons++;
         for (int j = 0; j < size - i - 1; j++) {
+            comparisons++;
             if (pack[j].cardVal > pack[j + 1].cardVal) {
                 aCard temp = pack[j];
                 pack[j] = pack[j + 1];
@@ -49,3 +64,15 @@ void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
         if (swapMade == false) break;
     }
 }
+
+/*int partitioner(aCard pack[], int start, int end) {
+    int index = 0, pivotIndex;
+    int var = start - end + 1;
+    aCard pivot = pack[end]; // defining variables
+    aCard temp[var]; // We need an array with equal size
+    for (int i = start; i <= end; i++) {
+        if (pack[i].cardVal < pivot.cardVal) {
+            temp[index] = pack.cardVal[i];
+        }
+    }
+}*/

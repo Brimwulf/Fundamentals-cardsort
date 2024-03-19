@@ -18,15 +18,15 @@ int main() {
 
     cout << "Pack before:" << endl;
     for (int ct = 0; ct < maxCard; ct++) {
-        thePack[ct] = getCard("32024813");   // change to your student number
-        cout << thePack[ct].cardVal << " of " << cardToStr(thePack[ct]) << endl;
+        thePack[ct] = getCard("32025027");   // change to your student number
+        cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
 
     int comparisons, moves;
     bubbleSort(thePack, maxCard, comparisons, moves);
     cout << "\nSorted by bubble sort:\n" << endl;
     for (int ct = 0; ct < maxCard; ct++) {
-        cout << thePack[ct].cardVal << " of " << cardToStr(thePack[ct]) << endl;
+        cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
     cout << "Comparisons made: " << comparisons << " moves taken: " << moves << endl;
 }

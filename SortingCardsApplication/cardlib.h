@@ -11,7 +11,8 @@ struct aCard {                          // defines a card
     Suit cardSuit;                      // suit
 };
 
-std::string cardToStr(aCard c);			// declare function to represent a card as a two character string
+std::string suitToStr(aCard c);			// declare function to represent a card as a two character string
+std::string valueToStr(aCard c);
 
 aCard getCard(std::string studentNumber);        // declares function to get a card from stdno string
 

@@ -11,13 +11,14 @@ using namespace std;
 const int maxCard = 20;
 
 aCard thePack[maxCard];
+// thePack is an array of aCards with an array size: maxCard.
 
 void bubbleSort(aCard pack[], int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
-            if (pack[j] > pack[j + 1]) {
+            //if (pack[j] > pack[j + 1]) {
 
-            }
+            //}
         }
     }
 }
@@ -27,18 +28,7 @@ int main() {
 
     for (int ct = 0; ct < maxCard; ct++) {
         thePack[ct] = getCard("32024813");   // change to your student number
-        //cout << thePack[ct].cardVal << " of " << thePack[ct].cardSuit << endl;
-        if (thePack[ct].cardVal == 1) cout << "Ace" << " of ";
-        else if (thePack[ct].cardVal == 11) cout << "Jack" << " of ";
-        else if (thePack[ct].cardVal == 12) cout << "Queen" << " of ";
-        else if (thePack[ct].cardVal == 13) cout << "King" << " of ";
-        else cout << thePack[ct].cardVal << " of ";
-        if (thePack[ct].cardSuit == 0) cout << "clubs";
-        else if (thePack[ct].cardSuit == 1) cout << "diamonds";
-        else if (thePack[ct].cardSuit == 2) cout << "hearts";
-        else if (thePack[ct].cardSuit == 3) cout << "spades";
-        else cout << thePack[ct].cardSuit;
-        cout << endl;
+        cout << thePack[ct].cardVal << " of " << cardToStr(thePack[ct]) << endl;
     }
 }
 

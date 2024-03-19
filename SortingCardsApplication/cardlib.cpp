@@ -6,7 +6,14 @@
 using namespace std;
 
 string cardToStr(aCard c) {
-    return "";
+    string output;
+    switch (c.cardSuit) {
+    case clubs: output = "clubs"; break;
+    case diamonds: output = "diamonds"; break;
+    case hearts: output = "hearts"; break;
+    case spades: output = "spades"; break;
+    }
+    return output;
 }
 
 aCard getCard(string studentNumber) { 

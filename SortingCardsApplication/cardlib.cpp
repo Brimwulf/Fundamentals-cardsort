@@ -65,14 +65,36 @@ void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
     }
 }
 
-/*int partitioner(aCard pack[], int start, int end) {
+int partitioner(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves) {
     int index = 0, pivotIndex;
-    int var = start - end + 1;
-    aCard pivot = pack[end]; // defining variables
-    aCard temp[var]; // We need an array with equal size
-    for (int i = start; i <= end; i++) {
-        if (pack[i].cardVal < pivot.cardVal) {
-            temp[index] = pack.cardVal[i];
+    int i = higher;
+    int j = lower;
+    quickComparisons = 0;
+    quickMoves = 0;
+    aCard pivot = pack[higher + (lower-higher) / 2]; // defining variables
+    while (j <= i) {
+        while (pack[j].cardVal < pivot.cardVal) {
+            j--;
+            quickComparisons++;
+        }
+        while (pack[i].cardVal < pivot.cardVal) {
+            i++;
+            quickComparisons++;
+        }
+        if (j <= i) {
+            swap(pack[i], pack[j]);
+            i--;
+            j++;
+            quickMoves++;
         }
     }
-}*/
+    return j;
+}
+
+void quickSort(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves) {
+    if (lower < higher) {
+        int partitionIndex = partitioner(pack, higher, lower, quickComparisons, quickMoves);
+        quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves);
+        quickSort(pack, partitionIndex, higher, quickComparisons, quickMoves);
+    }
+}

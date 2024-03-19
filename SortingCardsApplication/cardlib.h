@@ -17,3 +17,6 @@ std::string valueToStr(aCard c);
 aCard getCard(std::string studentNumber);        // declares function to get a card from stdno string
 
 void bubbleSort(aCard pack[], int size, int& comparisons, int& moves);
+
+int partitioner(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);
+void quickSort(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);

@@ -21,5 +21,5 @@ void bubbleSort(aCard pack[], int size, int& comparisons, int& moves);         /
 int partitioner(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);
 // This is a partitioner function and is necessary for quickSort which splits a pack into two about a pivot and then sorts the partitioned groups.
 
-void quickSort(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);
+void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves, int& recurDep);
 // Here's the function for sorting the partitions.

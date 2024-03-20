@@ -32,12 +32,14 @@ int main() {
 
     int quickComparisons = 0;
     int quickMoves = 0;
-    quickSort(thePack, 0, maxCard, quickComparisons, quickMoves);   // This function takes the pack, the lower limit which is 0 i.e. the start of the pack and the max as the higher bound.
+    int recurDep = 0;
+    quickSort(thePack, 0, maxCard, quickComparisons, quickMoves, recurDep);   // This function takes the pack, the lower limit which is 0 i.e. the start of the pack and the max as the higher bound.
     cout << "Quicksort:\n" << endl;
     for (int ct = 0; ct < maxCard; ct++) {
         cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
-    cout << "Comparisons made: " << quickComparisons << " moves taken: " << quickMoves << "\n" << endl;
+    cout << "Comparisons made: " << quickComparisons << " moves taken: " << quickMoves << endl;
+    cout << "Max recursion depth: " << recurDep-1 << endl;      // -1 on recurDep to omit the initial call of the function.
 }
 
 // Note to self: Remember that aCard is already represented as a value + a suit. The above output streams handle suits and values seperately.

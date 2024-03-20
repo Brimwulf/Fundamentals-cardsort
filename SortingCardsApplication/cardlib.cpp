@@ -90,10 +90,11 @@ int partitioner(aCard pack[], int lower, int higher, int& quickComparisons, int&
     return i;       // returns i which is used as the index for the partitioner which the quickSort function will use.
 }
 
-void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {   // Function takes the parameters, the pack as an array and the higher and lower bounds.
+void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves, int& recurDep) {   // Function takes the parameters, the pack as an array and the higher and lower bounds.
     if (lower < higher) {       // checking if the lower index is less than higher which checks if there are elements of the array yet to be sorted.
         int partitionIndex = partitioner(pack, lower, higher, quickComparisons, quickMoves);    // partitioning the array and using the return value as the partitionIndex variable.
-        quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves);
-        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves);      // Recursively quickSorting both the higher and lower partitions of the array.
+        quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves, recurDep);
+        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves, recurDep);      // Recursively quickSorting both the higher and lower partitions of the array.
+        recurDep++;     // Increasing the recursion counter each time this function is called.
     }
 }

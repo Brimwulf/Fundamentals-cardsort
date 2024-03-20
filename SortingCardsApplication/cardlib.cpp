@@ -67,36 +67,33 @@ void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
 
 int partitioner(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {
     aCard pivot = pack[(higher+lower)/2];     // selecting the pivot as the midpoint between the higher and lower value.
-    int i = lower;                            // creating 
-    int j = higher - 1;
+    int i = lower;                            // creating a variable i which is equal to the lower end of the array passed in
+    int j = higher - 1;                       // Same for the higher end but - 1 because the array is indexed from 0 to n.
 
-    while (i <= j) {
-        while (i <= j && pack[i].cardVal < pivot.cardVal) {
+    while (i <= j) {                          // Keep looping through the array until i is greater than j
+        while (i <= j && pack[i].cardVal < pivot.cardVal) {     
             i++;
             quickComparisons++;
         }
         while (i <= j && pack[j].cardVal > pivot.cardVal) {
             j--;
             quickComparisons++;
-        }
+        }       // Both of the above while loops are responsible for moving i and j closer to one another until it finds a value less than or equal to the pivot.
         if (i <= j) {
             swap(pack[i], pack[j]);
             i++;
             j--;
             quickMoves++;
-        }
+        }       // This if statement is responsible for swapping values if i is less than j i.e. if the lower variable is less than the higher.
     }
-    /*if (i != higher) {
-        swap(pack[i], pack[higher]);
-        quickMoves++;
-    }*/
-    return i;
+    
+    return i;       // returns i which is used as the index for the partitioner which the quickSort function will use.
 }
 
-void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {
-    if (lower < higher) {
-        int partitionIndex = partitioner(pack, lower, higher, quickComparisons, quickMoves);
+void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {   // Function takes the parameters, the pack as an array and the higher and lower bounds.
+    if (lower < higher) {       // checking if the lower index is less than higher which checks if there are elements of the array yet to be sorted.
+        int partitionIndex = partitioner(pack, lower, higher, quickComparisons, quickMoves);    // partitioning the array and using the return value as the partitionIndex variable.
         quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves);
-        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves);
+        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves);      // Recursively quickSorting both the higher and lower partitions of the array.
     }
 }

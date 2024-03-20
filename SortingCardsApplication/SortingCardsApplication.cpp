@@ -40,5 +40,4 @@ int main() {
     cout << "Comparisons made: " << quickComparisons << " moves taken: " << quickMoves << "\n" << endl;
 }
 
-// Remember that aCard is already represented as a number + another number. The above logic only represents it so that it can be printed out
-// The same method of representing should later be moved to the card to string function
+// Note to self: Remember that aCard is already represented as a value + a suit. The above output streams handle suits and values seperately.

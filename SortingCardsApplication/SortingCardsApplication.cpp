@@ -28,7 +28,7 @@ int main() {
     for (int ct = 0; ct < maxCard; ct++) {
         cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
-    cout << "Comparisons made: " << comparisons << " moves taken: " << moves << endl;
+    cout << "Comparisons made: " << comparisons << " moves taken: " << moves << "\n" << endl;
 
     int quickComparisons = 0;
     int quickMoves = 0;
@@ -37,7 +37,7 @@ int main() {
     for (int ct = 0; ct < maxCard; ct++) {
         cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
-    cout << "Comparisons made: " << quickComparisons << " moves taken " << quickMoves << endl;
+    cout << "Comparisons made: " << quickComparisons << " moves taken: " << quickMoves << "\n" << endl;
 }
 
 // Remember that aCard is already represented as a number + another number. The above logic only represents it so that it can be printed out

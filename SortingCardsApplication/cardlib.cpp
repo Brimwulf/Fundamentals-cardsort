@@ -6,30 +6,30 @@
 #include "cardlib.h"
 using namespace std;
 
-string suitToStr(aCard c) {
-    string suit_output;
+string suitToStr(aCard c) {     // function for converting the suit of aCard to a string
+    string suit_output;     // defining a string variable for the output.
     
-    switch (c.cardSuit) {
-    case clubs: suit_output = "clubs"; break;
+    switch (c.cardSuit) {       // We want switch cases for each value of the enum for suits.
+    case clubs: suit_output = "clubs"; break;       // Sets a str variable based on the value of the enum.
     case diamonds: suit_output = "diamonds"; break;
     case hearts: suit_output = "hearts"; break;
     case spades: suit_output = "spades"; break;
     }
     
-    return suit_output;
+    return suit_output;     // Returns the string.
 }
 
-string valueToStr(aCard c) {
-    string value_output;
-    switch (c.cardVal) {
+string valueToStr(aCard c) {    // This function works similarly to above except for the value of the card.
+    string value_output;        // Variable for string output.
+    switch (c.cardVal) {        // Switch cases for the value of the card. If 1, 11, 12, 13 the string becomes ace, jack, queen or king respectively.
     case 1: value_output = "Ace"; break;
     case 11: value_output = "Jack"; break;
     case 12: value_output = "Queen"; break;
     case 13: value_output = "King"; break;
-    default: value_output = std::to_string(c.cardVal);
+    default: value_output = std::to_string(c.cardVal);  // We also want a default case to return just the value of the card if not 1,11,12 or 13.
     }
 
-    return value_output;
+    return value_output;    // returns the output string.
 }
 
 aCard getCard(string studentNumber) { 
@@ -45,19 +45,19 @@ aCard getCard(string studentNumber) {
 }
 
 void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
-    bool swapMade;
+    bool swapMade;      // Declaring a boolean variable which will be used to check if a swap was made.
     moves = 0;
-    comparisons = 0;
-    for (int i = 0; i < size - 1; i++) {
-        swapMade = false;
+    comparisons = 0;    // Initialising variables for the number of moves and comparisons taken.
+    for (int i = 0; i < size - 1; i++) {        // iterating through the size of the pack - 1 because i starts from 0.
+        swapMade = false;                       // Set swapMade back to false for each iteration.
         for (int j = 0; j < size - i - 1; j++) {
-            comparisons++;
-            if (pack[j].cardVal > pack[j + 1].cardVal) {
-                aCard temp = pack[j];
-                pack[j] = pack[j + 1];
-                pack[j + 1] = temp;
-                swapMade = true;
-                moves++;
+            comparisons++;                      // Incrementing comparisons here since a comparison is made below.
+            if (pack[j].cardVal > pack[j + 1].cardVal) {        // If the value of the card we're on is greater than the next card in the pack:
+                aCard temp = pack[j];                           // Setting a temporary variable so we can make the swap.
+                pack[j] = pack[j + 1];                          // Setting the current card to be the same as the next one.
+                pack[j + 1] = temp;                             // Setting the next card to be the same as the current card.
+                swapMade = true;                                // Setting swapMade to true to verify that we have swapped a card aroud.
+                moves++;                                        // And finally incrementing the move counter.
             }
         }
         // if swapMade remains false after the iteration of the loop this means no swap took place we want the loop to break
@@ -66,8 +66,8 @@ void bubbleSort(aCard pack[], int size, int& moves, int& comparisons) {
 }
 
 int partitioner(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {
-    aCard pivot = pack[higher];
-    int i = lower;
+    aCard pivot = pack[(higher+lower)/2];     // selecting the pivot as the midpoint between the higher and lower value.
+    int i = lower;                            // creating 
     int j = higher - 1;
 
     while (i <= j) {
@@ -86,10 +86,10 @@ int partitioner(aCard pack[], int lower, int higher, int& quickComparisons, int&
             quickMoves++;
         }
     }
-    if (i != higher) {
+    /*if (i != higher) {
         swap(pack[i], pack[higher]);
         quickMoves++;
-    }
+    }*/
     return i;
 }
 

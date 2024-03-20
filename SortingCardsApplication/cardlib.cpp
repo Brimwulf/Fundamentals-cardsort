@@ -93,11 +93,10 @@ int partitioner(aCard pack[], int lower, int higher, int& quickComparisons, int&
     return i;
 }
 
-void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves, int& recurDep) {
+void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves) {
     if (lower < higher) {
         int partitionIndex = partitioner(pack, lower, higher, quickComparisons, quickMoves);
-        quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves, recurDep);
-        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves, recurDep);
-        recurDep++;
+        quickSort(pack, lower, partitionIndex - 1, quickComparisons, quickMoves);
+        quickSort(pack, partitionIndex + 1, higher, quickComparisons, quickMoves);
     }
 }

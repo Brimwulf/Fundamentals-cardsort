@@ -32,14 +32,12 @@ int main() {
 
     int quickComparisons = 0;
     int quickMoves = 0;
-    int recurDep = 0;
-    quickSort(thePack, 0, maxCard - 1, quickComparisons, quickMoves, recurDep);
+    quickSort(thePack, 0, maxCard - 1, quickComparisons, quickMoves);
     cout << "Quicksort:\n" << endl;
     for (int ct = 0; ct < maxCard; ct++) {
         cout << valueToStr(thePack[ct]) << " of " << suitToStr(thePack[ct]) << endl;
     }
     cout << "Comparisons made: " << quickComparisons << " moves taken " << quickMoves << endl;
-    cout << "Max recursion depth: " << recurDep << endl;
 }
 
 // Remember that aCard is already represented as a number + another number. The above logic only represents it so that it can be printed out

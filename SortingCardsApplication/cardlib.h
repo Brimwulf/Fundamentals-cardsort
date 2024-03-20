@@ -19,4 +19,4 @@ aCard getCard(std::string studentNumber);        // declares function to get a c
 void bubbleSort(aCard pack[], int size, int& comparisons, int& moves);
 
 int partitioner(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);
-void quickSort(aCard pack[], int lower, int higher, int& quickComparisons, int& quickMoves, int& recurDep);
+void quickSort(aCard pack[], int higher, int lower, int& quickComparisons, int& quickMoves);
